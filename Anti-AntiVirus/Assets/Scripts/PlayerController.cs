@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
         }
+
+        destination.z = 0;
     }
 
     public void SetNodeFSM(NodeFSM newTileFSM)

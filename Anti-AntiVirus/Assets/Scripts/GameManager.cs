@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
 
     public void InitialiseGame()
     {
-        player = (GameObject)Instantiate(playerGameObj, startingTile.transform.position, transform.rotation);
+        Vector3 spawnPoint = startingTile.transform.position;
+        spawnPoint.z = 0;
+        player = (GameObject)Instantiate(playerGameObj, spawnPoint, transform.rotation);
         player.GetComponent<PlayerController>().SetNodeFSM(startingTile.GetComponent<NodeFSM>());
     }
 }

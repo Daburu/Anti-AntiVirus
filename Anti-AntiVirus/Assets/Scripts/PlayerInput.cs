@@ -74,15 +74,16 @@ public class PlayerInput : MonoBehaviour
                 default:
                     UpdateGUIVars(touch);
 
-                    if(swipeAvailable == false)
-                    {
+                    //Conditions to prevent swipe detection.
+                    //Note that firstTouch will still be recorded.
+                    if(swipeAvailable == false) 
                         break;
-                    }
 
                     if (playerController.IsMoving)
-                    {
                         break;
-                    }
+
+                    if (playerController.IsMoving)
+                        break;
 
                     Vector2 touchVector = touch.position - firstTouch;
 
