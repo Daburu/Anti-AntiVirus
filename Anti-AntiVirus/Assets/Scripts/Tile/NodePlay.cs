@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TilePlay : ITile 
+public class NodePlay : INode 
 {
-    public TilePlay(TileFSM otherfsm)
+    public NodePlay(NodeFSM otherfsm)
     {
         fsm = otherfsm;
     }

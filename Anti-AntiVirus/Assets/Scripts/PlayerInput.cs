@@ -12,7 +12,6 @@ public class PlayerInput : MonoBehaviour
         Null
     }
 
-    public TileFSM currentTile;
     private PlayerController playerController;
 
     public float dotProductTolerance = 0.80f;

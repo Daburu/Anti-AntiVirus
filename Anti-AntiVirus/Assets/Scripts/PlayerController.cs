@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour 
 {
-    private TileFSM tileFSM;
+    private NodeFSM NodeFSM;
     private PlayerInput.Direction direction = PlayerInput.Direction.Null;
 
     public float minChange = 5f;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
             if (transform.position == destination)
             {
-                UpdateTileFSM();
+                UpdateNodeFSM();
             }
         }
         else
@@ -49,63 +49,63 @@ public class PlayerController : MonoBehaviour
         switch (direction)
         {
             case PlayerInput.Direction.Up:
-                if (tileFSM.up)
+                if (NodeFSM.up)
                 {
-                    destination = tileFSM.up.transform.position;
+                    destination = NodeFSM.up.transform.position;
                 }
                 break;
             case PlayerInput.Direction.Down:
-                if (tileFSM.down)
+                if (NodeFSM.down)
                 {
-                    destination = tileFSM.down.transform.position;
+                    destination = NodeFSM.down.transform.position;
                 }
                 break;
             case PlayerInput.Direction.Left:
-                if (tileFSM.left)
+                if (NodeFSM.left)
                 {
-                    destination = tileFSM.left.transform.position;
+                    destination = NodeFSM.left.transform.position;
                 }
                 break;
             case PlayerInput.Direction.Right:
-                if (tileFSM.right)
+                if (NodeFSM.right)
                 {
-                    destination = tileFSM.right.transform.position;
+                    destination = NodeFSM.right.transform.position;
                 }
                 break;
         }
     }
 
-    public void SetTileFSM(TileFSM newTileFSM)
+    public void SetNodeFSM(NodeFSM newTileFSM)
     {
-        tileFSM = newTileFSM;
+        NodeFSM = newTileFSM;
     }
 
-    private void UpdateTileFSM()
+    private void UpdateNodeFSM()
     {
         switch (direction)
         {
             case PlayerInput.Direction.Up:
-                if (tileFSM.up)
+                if (NodeFSM.up)
                 {
-                    tileFSM = tileFSM.up;
+                    NodeFSM = NodeFSM.up;
                 }
                 break;
             case PlayerInput.Direction.Down:
-                if (tileFSM.down)
+                if (NodeFSM.down)
                 {
-                    tileFSM = tileFSM.down;
+                    NodeFSM = NodeFSM.down;
                 }
                 break;
             case PlayerInput.Direction.Left:
-                if (tileFSM.left)
+                if (NodeFSM.left)
                 {
-                    tileFSM = tileFSM.left;
+                    NodeFSM = NodeFSM.left;
                 }
                 break;
             case PlayerInput.Direction.Right:
-                if (tileFSM.right)
+                if (NodeFSM.right)
                 {
-                    tileFSM = tileFSM.right;
+                    NodeFSM = NodeFSM.right;
                 }
                 break;
         }

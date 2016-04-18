@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TileFSM : MonoBehaviour
+public class NodeFSM : MonoBehaviour
 {
     public enum States
     { 
@@ -11,16 +11,16 @@ public class TileFSM : MonoBehaviour
     }
 
     //Neighbouring Tiles
-    public TileFSM up;
-    public TileFSM down;
-    public TileFSM left;
-    public TileFSM right;
+    public NodeFSM up;
+    public NodeFSM down;
+    public NodeFSM left;
+    public NodeFSM right;
 
     public static GameManager gameManager;
 
     //Finite State Machine
-    private ITile[] stateList;
-    private ITile currentState;
+    private INode[] stateList;
+    private INode currentState;
     private States StateEnum;
 
     #region MonoBehaviour
@@ -59,10 +59,10 @@ public class TileFSM : MonoBehaviour
 
     public void InitialiseFSM()
     {
-        stateList = new ITile[(int)States.Count];
+        stateList = new INode[(int)States.Count];
 
-        stateList[(int)States.Initialise] = new TileInitialise(this);
-        stateList[(int)States.Play] = new TilePlay(this);
+        stateList[(int)States.Initialise] = new NodeInitialise(this);
+        stateList[(int)States.Play] = new NodePlay(this);
 
         ChangeState(States.Initialise);
     }

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ITile
+public class INode
 {
-    protected TileFSM fsm;
+    protected NodeFSM fsm;
 
     public virtual void Enter()
     {

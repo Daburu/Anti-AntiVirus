@@ -28,6 +28,6 @@ public class GameManager : MonoBehaviour
     public void InitialiseGame()
     {
         player = (GameObject)Instantiate(playerGameObj, startingTile.transform.position, transform.rotation);
-        player.GetComponent<PlayerController>().SetTileFSM(startingTile.GetComponent<TileFSM>());
+        player.GetComponent<PlayerController>().SetNodeFSM(startingTile.GetComponent<NodeFSM>());
     }
 }
